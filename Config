@@ -1,0 +1,13 @@
+Router>enable 
+Router#configure 
+Router(config)#interface gigabitEthernet 0/1
+Router(config-if)#no shutdown 
+Router(config-if)#ip address 192.168.10.1 255.255.255.0
+Router(config-if)#ip nat inside 
+Router(config-if)#exit 
+Router(config)#interface serial 0/3/0
+Router(config-if)#no shutdown 
+Router(config-if)#ip address 170.20.30.40 255.255.255.0
+Router(config-if)#ip nat outside 
+Router(config-if)#exit 
+Router(config)#ip nat inside source static 192.168.10.20 170.20.30.40
